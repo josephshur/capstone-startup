@@ -10,13 +10,22 @@ module.exports = (app, models) => {
 
   // CREATE
   app.post('/movies/:movieId/ratings', (req, res) => {
-    req.body.MovieId = req.params.movieId;
+    req.body.movieId = req.params.movieId;
     models.Rating.create(req.body).then(rating => {
+      console.log(req.params);
       res.redirect(`/movies/${req.params.movieId}`);
     }).catch((err) => {
         console.log(err)
     });
   });
 
-  // DESTROY
+  // DELETE
+  app.delete('/movies/:movieId/ratings/:id', (req, res) => {
+      models.Rating.findByPk(req.params.id).then(rating => {
+          rating.destroy();
+          res.redirect(`/movies/${req.params.movieId}`);
+      }).catch((err) => {
+          console.log(err);
+      });
+  });
 }

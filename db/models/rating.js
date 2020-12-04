@@ -4,14 +4,14 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Rating extends Model {
-    
+
     static associate(models) {
       Rating.belongsTo(models.Movie);
 
     }
   };
   Rating.init({
-    name: DataTypes.STRING,
+    email: DataTypes.STRING,
     comment: DataTypes.STRING
   }, {
     sequelize,

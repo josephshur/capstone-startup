@@ -24,13 +24,16 @@ module.exports = function (app, models) {
   })
 
   // SHOW
-  app.get('/movies/:id', (req, res) => {
-    models.Movie.findByPk(req.params.id, { include: [{ model: models.Rating }] }).then((movie) => {
-      res.render('movies-show', { movie: movie })
-    }).catch((err) => {
-      console.log(err.message);
-    })
-  })
+    app.get('/movies/:id', (req, res) => {
+      models.Movie.findByPk(req.params.id, { include: [{ model: models.Rating }] }).then(movie => {
+        let createdAt = movie.createdAt;
+        //createdAt = moment(createdAt).format('MMMM Do YYYY, h:mm:ss a');
+        movie.createdAtFormatted = createdAt;
+        res.render('movies-show', { movie: movie });
+      }).catch((err) => {
+        console.log(err.message);
+      })
+    });
 
   // EDIT
   app.get('/movies/:id/edit', (req, res) => {
