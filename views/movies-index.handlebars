@@ -1,0 +1,46 @@
+<!-- events-index -->
+  <div class="jumbotron">
+    <h1>Welcome to MovieCentral!</h1>
+    Here you can search up movies and their corresponding ratings, comments and view count! If you can't find your favorite movie, you can add it below.
+  </div>
+  <div class="row mt-4">
+     <div class="col-lg-6">
+         <h1>Movies</h1>
+            <a href="/movies/new">New Movie</a>
+         {{#each movies}}
+          <div class="card mt-3">
+            <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.description}}</p>
+                <div class="text-right">
+                  {{#if currentUser}}
+                    <a href="/movies/{{this.id}}/comments/new" class="btn btn-info">Comment</a>
+                  {{/if}}
+                    <a href="/movies/{{this.id}}" class="btn btn-primary">View</a>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+     </div>
+
+     <!-- <div class="col-lg-6">
+       <h1>Ratings</h1>
+       <br>
+       {{#each comments}}
+        <div class="card mt-3">
+          <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{this.title}}</h5>
+              <p class="card-text">{{this.description}}</p>
+              <div class="text-right">
+                {{#if currentUser}}
+                  <a href="/movies/{{this.id}}/comments/new" class="btn btn-info">Reply</a>
+                {{/if}}
+                  <a href="/movies/{{this.id}}" class="btn btn-primary">Like</a>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+     </div> -->
+ </div>
