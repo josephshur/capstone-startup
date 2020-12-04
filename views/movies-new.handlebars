@@ -3,18 +3,7 @@
 <form method="POST" action="/movies">
   <fieldset>
     <legend>New Movie</legend>
-    <p>
-      <label for="title">Title</label><br>
-      <input type="text" name="title" />
-    </p>
-    <p>
-      <label for="desc">Movie Title</label><br>
-      <input type="text" name="desc" />
-    </p>
-    <p>
-      <label for="imgUrl">Image Url</label><br>
-      <input type="text" placeholder="" name="imgUrl" />
-    </p>
+    {{> movies-form }}
   </fieldset>
 
   <p>
