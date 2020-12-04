@@ -1,0 +1,32 @@
+<!-- views/ratings-new.handlebars -->
+
+<div class="row mt-4">
+    <div class="col-lg-6 offset-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3>New Rating</h3>
+                    <div class="lead">
+                        Movie: {{movie.title}}
+                    </div>
+                </div>
+                <div class="card-text">
+                    <form action="/movies/{{movie.id}}/ratings" method="post">
+                        <div class="form-group">
+                            <label for="title">Name</label>
+                            <input name="name" class="form-control" placeholder="Jane Doe" />
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Comment</label>
+                            <input name="name" class="form-control" placeholder="Great movie!" />
+                        </div>
+                        <div class="text-right">
+                            <a href="/" class='text-muted mr-2'>Cancel</a>
+                            <button type="submit" class="btn btn-primary" name="button">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

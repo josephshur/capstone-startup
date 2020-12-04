@@ -25,7 +25,7 @@ module.exports = function (app, models) {
 
   // SHOW
   app.get('/movies/:id', (req, res) => {
-    models.Movie.findByPk(req.params.id).then((movie) => {
+    models.Movie.findByPk(req.params.id, { include: [{ model: models.Rating }] }).then((movie) => {
       res.render('movies-show', { movie: movie })
     }).catch((err) => {
       console.log(err.message);

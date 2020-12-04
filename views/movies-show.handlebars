@@ -12,18 +12,18 @@
   </div>
   <div class="col-lg-4 offset-lg-1">
     <div class="d-flex justify-content-between">
-        <b>Comments ({{movie.Comments.length}})</b>
-        <a href="/movies/{{movie.id}}/comments/new" class="btn btn-primary btn-sm">Comment</a>
+        <b>Ratings ({{movie.Ratings.length}})</b>
+        <a href="/movies/{{movie.id}}/ratings/new" class="btn btn-primary btn-sm">Rate</a>
     </div>
 
     <div class="list-group mt-4">
-      {{#each movie.Comments}}
+      {{#each movie.Ratings}}
         <div class="list-group-item clearfix">
           <div class="float-left">
             {{this.name}}
           </div>
           <div class="float-right">
-            <form class="form-inline" action="/movies/{{../movie.id}}/comments/{{this.id}}?_method=DELETE">
+            <form class="form-inline" action="/movies/{{../movie.id}}/ratings/{{this.id}}?_method=DELETE">
               <button type="submit" class="btn btn-link btn-sm">Remove</button>
             </form>
           </div>
