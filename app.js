@@ -25,7 +25,7 @@ var movies = [
   { title: "Star Wars: Revenge of the Sith", desc: "As the Clone Wars draw to an end, the Sith secretly rise to power.", imgUrl: "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA4OC85MTEvb3JpZ2luYWwvZ29sZGVuLXJldHJpZXZlci1wdXBweS5qcGVn" }
 ]
 
-require('./controllers/events')(app, models);
+require('./controllers/movies')(app, models);
 
 const port = process.env.PORT || 3000;
 
