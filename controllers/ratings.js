@@ -10,7 +10,7 @@ module.exports = (app, models) => {
 
   // CREATE
   app.post('/movies/:movieId/ratings', (req, res) => {
-    req.body.movieId = req.params.movieId;
+    req.body.MovieId = req.params.movieId;
     models.Rating.create(req.body).then(rating => {
       console.log(req.params);
       res.redirect(`/movies/${req.params.movieId}`);

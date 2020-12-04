@@ -20,7 +20,9 @@
       {{#each movie.Ratings}}
         <div class="list-group-item clearfix">
           <div class="float-left">
-            {{this.name}}
+            <h6>{{this.firstName}} {{this.lastName}}</h6>
+            <br>
+            {{this.comment}}
           </div>
           <div class="float-right">
             <form class="form-inline" action="/movies/{{../movie.id}}/ratings/{{this.id}}?_method=DELETE">

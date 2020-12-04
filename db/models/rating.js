@@ -11,8 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Rating.init({
-    email: DataTypes.STRING,
-    comment: DataTypes.STRING
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    comment: DataTypes.STRING,
+    MovieId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Rating',
