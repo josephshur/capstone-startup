@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       Rating.belongsTo(models.Movie);
-      Rating.belongsTo(models.Rating);
     }
   };
   Rating.init({
