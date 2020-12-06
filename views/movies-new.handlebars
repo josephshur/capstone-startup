@@ -1,13 +1,13 @@
 <!-- views/movies-new.handlebars -->
 
-<form method="POST" action="/movies">
+<form method="POST" action="/movies" class="p-3">
   <fieldset>
     <legend>New Movie</legend>
     {{> movies-form }}
   </fieldset>
 
   <p>
-    <button type="submit">Save Movie</button>
+    <button type="submit" class="btn btn-primary" name="button">Save</button>
   </p>
 
 </form>

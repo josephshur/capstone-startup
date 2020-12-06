@@ -1,0 +1,25 @@
+<!-- views/articles-edit.handlebars -->
+
+<div class="row mt-4">
+    <div class="col-lg-6 offset-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3>Update {{article.title}}</h3>
+                </div>
+                <div class="card-text">
+                    <form action="/movies/{{article.id}}?_method=PUT" method="post">
+                        {{> articles-form }}
+                        <div class="text-right">
+                            <a href="/articles/{{article.id}}" class='text-muted mr-2'>Cancel</a>
+                            <button type="submit" class="btn btn-primary" name="button">Update</button>
+                        </div>
+                    </form>
+                    <form action="/articles/{{article.id}}?_method=DELETE" method="POST">
+                      <button type="submit" class='btn btn-danger'>Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

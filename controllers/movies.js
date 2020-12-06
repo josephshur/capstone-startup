@@ -4,7 +4,8 @@ module.exports = function (app, models) {
 
   // INDEX
   app.get('/', (req, res) => {
-    models.Movie.findAll({ order: [['createdAt', 'DESC']] }).then(movies => {
+    models.Movie.findAll({ order: [['createdAt', 'DESC']] }, { include: [{ model: models.Rating }] }).then(movies => {
+      
       res.render('movies-index', { movies: movies });
     })
   })

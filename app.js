@@ -28,6 +28,7 @@ var movies = [
 
 require('./controllers/movies')(app, models);
 require('./controllers/ratings')(app, models);
+require('./controllers/articles')(app, models);
 
 const port = process.env.PORT || 3000;
 

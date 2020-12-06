@@ -1,0 +1,18 @@
+<div class="col-lg-6 offset-lg-3">
+    <h1>News Articles</h1>
+    <a href="/articles/new">New Article</a>
+    {{#each articles}}
+      <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.desc}}</p>
+            <div class="text-right">
+              {{#if currentUser}}
+                <a href="/articles/new" class="btn btn-info">New Article</a>
+              {{/if}}
+                <a href="/articles/{{this.id}}" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+ </div>

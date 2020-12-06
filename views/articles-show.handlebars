@@ -1,0 +1,36 @@
+<!-- views/articles-show.handlebars -->
+
+<div class="row mt-4">
+  <div class="col-lg-6">
+    <small class="text-muted">Created on: {{article.createdAtFormatted}}</small>
+    <h3>{{article.title}}</h3>
+    <div class="lead">{{article.desc}}</div>
+    <div>{{article.body}}</div>
+    <div class="text-right">
+      <a href="/articles/{{article.id}}/edit">Edit</a>
+    </div>
+  </div>
+  <div class="col-lg-4 offset-lg-1">
+    <div class="d-flex justify-content-between">
+        <b>Comments ({{article.Comments.length}})</b>
+        <a href="/articles/{{comment.id}}/comments/new" class="btn btn-primary btn-sm">Comment</a>
+    </div>
+
+    <div class="list-group mt-4">
+      {{#each article.Comments}}
+        <div class="list-group-item clearfix">
+          <div class="float-left">
+            <h6>{{this.firstName}} {{this.lastName}}</h6>
+            <br>
+            {{this.body}}
+          </div>
+          <div class="float-right">
+            <form class="form-inline" action="/articles/{{../article.id}}/comments/{{this.id}}?_method=DELETE">
+              <button type="submit" class="btn btn-link btn-sm">Remove</button>
+            </form>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+</div>
+</div>
