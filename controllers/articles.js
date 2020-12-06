@@ -2,7 +2,7 @@
 
 module.exports = function (app, models) {
 
-  // ARTICLES INDEX
+  // GET INDEX
   app.get('/articles', (req, res) => {
     models.Article.findAll({ order: [['createdAt', 'DESC']] }).then(articles => {
       res.render('articles-index', { articles: articles });

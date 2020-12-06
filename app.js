@@ -11,7 +11,7 @@ const exphbs = require('express-handlebars');
 
 const models = require('./db/models');
 
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main', handlebars: allowInsecurePrototypeAccess(Handlebars) }));
 
