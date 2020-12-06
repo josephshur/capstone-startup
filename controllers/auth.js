@@ -67,6 +67,20 @@ module.exports = function (app, models) {
       });
     });
 
+    // ME
+    app.get('/me', (req, res) => {
+      models.Movie.findAll({ order: [['createdAt', 'DESC']] }).then(movies => {
+        res.render('me', { movies: movies });
+      })
+    })
+
+    // ME (SECOND VERSION)
+    app.get('/me', (req, res) => {
+      models.User.findOne({ where: user.id }).then(movies => {
+        res.render('me', { movies: movies, articles: articles, user: user });
+      })
+    })
+
     // LOGOUT
     app.get('/logout', (req, res, next) => {
       res.clearCookie('csJWT');

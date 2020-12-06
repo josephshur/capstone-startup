@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       Movie.hasMany(models.Rating);
+      Movie.belongsTo(models.User);
     }
   };
   Movie.init({

@@ -17,7 +17,8 @@ module.exports = (app, models) => {
   // CREATE
   app.post('/movies', (req, res) => {
     models.Movie.create(req.body).then(movie => {
-      movie.UserId = req.user.id;
+      movie.setUser(res.locals.currentUser)
+      console.log(req.params.id);
       res.redirect(`/`);
     }).catch((err) => {
       console.log(err)
