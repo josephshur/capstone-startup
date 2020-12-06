@@ -1,33 +1,16 @@
 <!-- events-index -->
   <div class="jumbotron">
     <h1>Welcome to MovieCentral!</h1>
-    Here you can search up movies and their corresponding ratings, comments and view count! If you can't find your favorite movie, you can add it below.
+    MovieCentral is the #1 source of finding movies - both classics and originals. Here you can search up movies and their corresponding ratings, as well as post articles pertaining to the entertainment and movie industry. If you can't find your favorite movie, you can add it below.
   </div>
   <div class="row mt-4">
-    <div class="col-lg-3">
-      <h1>Ratings</h1>
-      <br>
-      {{#each ratings}}
-       <div class="card mt-3">
-           <div class="card-body">
-             <h5 class="card-title">{{this.firstName}} {{this.lastName}}</h5>
-             <p class="card-text">{{this.desc}}</p>
-             <div class="text-right">
-               <!-- {{#if currentUser}}
-                 <a href="/movies/{{this.id}}/ratings/new" class="btn btn-info">Reply</a>
-               {{/if}}
-                 <a href="/movies/{{this.id}}" class="btn btn-primary">Like</a> -->
-             </div>
-           </div>
-         </div>
-       {{/each}}
-    </div>
 
-    <div class="col-lg-6">
+    <div>
         <h1>Movies</h1>
         <a href="/movies/new">New Movie</a>
+        <div class="row">
         {{#each movies}}
-          <div class="card mt-3">
+          <div class="col-lg-4 card mt-3">
             <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">{{this.title}}</h5>
@@ -38,28 +21,25 @@
                   {{/if}}
                     <a href="/movies/{{this.id}}" class="btn btn-primary">View</a>
                 </div>
-
-                <h5 class="card-title">Ratings</h5>
-                {{#each movie.Ratings}}
+                <!-- Ratings Section -->
+                <!-- <h5 class="card-title">Ratings</h5>
+                {{#each ratings}}
                   <div>
                     <div>
-                      <h5>{{this.firstName}} {{this.lastName}}</h5>
-                      <p>{{this.desc}}</p>
+                      <h6>{{firstName}} {{lastName}}</h5>
+                      <p>{{comment}}</p>
                       <div>
                         {{#if currentUser}}
-                          <a href="/movies/{{this.id}}/ratings/new" class="btn btn-info">Reply</a>
+                          <a href="/movies/:movieId/ratings/new" class="btn btn-info">Reply</a>
                         {{/if}}
-                          <a href="/movies/{{this.id}}" class="btn btn-primary">Like</a>
+                          <a href="/movies/:movieId" class="btn btn-primary">Like</a>
                       </div>
                     </div>
                   </div>
+                {{/each}} -->
               </div>
-              {{/each}}
             </div>
           {{/each}}
-     </div>
-
-     <div class="col-lg-3">
-       <h1>Articles</h1>
+          </div>
      </div>
  </div>

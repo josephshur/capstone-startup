@@ -1,6 +1,8 @@
 // controllers/ratings.js
 
-module.exports = (app, models) => {
+module.exports = async function (app, models) {
+
+
   // NEW
   app.get('/movies/:movieId/ratings/new', (req, res) => {
     models.Movie.findByPk(req.params.movieId).then(movie => {
