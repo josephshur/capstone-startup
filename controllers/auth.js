@@ -74,12 +74,12 @@ module.exports = function (app, models) {
       })
     })
 
-    // ME (SECOND VERSION)
-    app.get('/me', (req, res) => {
-      models.User.findOne({ where: user.id }).then(movies => {
-        res.render('me', { movies: movies, articles: articles, user: user });
-      })
-    })
+    // // ME (SECOND VERSION)
+    // app.get('/me', (req, res) => {
+    //   models.User.findOne({ where: user.id }).then(movies => {
+    //     res.render('me', { movies: movies, articles: articles, user: user });
+    //   })
+    // })
 
     // LOGOUT
     app.get('/logout', (req, res, next) => {
