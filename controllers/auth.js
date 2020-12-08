@@ -88,4 +88,11 @@ module.exports = function (app, models) {
       //req.session.sessionFlash = { type: 'success', message: 'Successfully logged out!' }
       return res.redirect('/');
     });
+
+    // USER INDEX
+    app.get('/users', (req, res) => {
+      models.User.findAll({ order: [['createdAt', 'DESC']] }).then(users => {
+        res.render('users-index', { users: users });
+      })
+    })
 }

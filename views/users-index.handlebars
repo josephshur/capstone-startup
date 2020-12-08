@@ -1,0 +1,18 @@
+<div>
+    <h1>Users</h1>
+    <a href="/sign-up">Sign Up</a>
+    <div class="row">
+    {{#each users}}
+      <div class="col-lg-4 card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">{{this.firstName}} {{this.lastName}}</h5>
+            <div class="text-right">
+              {{#if currentUser}}
+                <a href="/users/{{this.id}}" class="btn btn-primary">View</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+ </div>
