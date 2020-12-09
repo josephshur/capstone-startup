@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
+    username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
     // UserID: DataTypes.INTEGER
@@ -14,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     User.hasMany(models.Movie);
+    User.hasMany(models.Article);
     User.hasMany(models.Rating);
   }
 

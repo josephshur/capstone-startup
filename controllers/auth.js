@@ -40,9 +40,7 @@ module.exports = function (app, models) {
 
     //POST LOGIN
     app.post('/login', (req, res, next) => {
-      // look up user with email
-      models.User.findOne({ where: { email: req.body.email } }).then(user => {
-        //console.log("Account Email:", req.body.email);
+      models.User.findOne({ where: { username: req.body.username } }).then(user => {
         // compare passwords
         user.comparePassword(req.body.password, function (err, isMatch) {
           if (err) {
@@ -56,7 +54,6 @@ module.exports = function (app, models) {
           const csJWT = generateJWT(user);
           // save jwt as cookie
           res.cookie("csJWT", csJWT)
-
           res.redirect('/')
           }
         })
@@ -69,7 +66,7 @@ module.exports = function (app, models) {
 
     // ME
     app.get('/me', (req, res) => {
-      models.Movie.findAll({ order: [['createdAt', 'DESC']] }).then(movies => {
+      models.Movie.findAll({ order: [['createdAt', 'DESC']], where: { username: req.body.username }  }).then(movies => {
         res.render('me', { movies: movies });
       })
     })
