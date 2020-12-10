@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   Movie.init({
     title: DataTypes.STRING,
     desc: DataTypes.TEXT,
-    imgUrl: DataTypes.STRING
+    imgUrl: DataTypes.STRING,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Movie',

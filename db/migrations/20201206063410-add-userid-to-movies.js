@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn('Movies', 'UserId', { type: Sequelize.STRING });
+    return queryInterface.addColumn('Movies', 'UserId', { type: Sequelize.INTEGER });
   },
 
   down: (queryInterface, Sequelize) => {

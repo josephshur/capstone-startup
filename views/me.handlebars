@@ -1,48 +1,14 @@
 <!-- views/me.handlebars -->
 
 {{#if currentUser}}
+<h2>{{currentUser.firstName}} {{currentUser.lastName}}</h2>
+<h4>MovieScore: {{currentUser.movieScore}}</h4>
 <div>
-</div>
-<div class="row">
-  <!-- MOVIES -->
-  <div class="col-lg-6">
-    <h1>Movies</h1>
-    All movies posted by user
-    {{#each movies}}
-      <div class="col-lg-6 card mt-3">
-        <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{this.title}}</h5>
-            <p class="card-text">{{this.desc}}</p>
-            <div class="text-right">
-              {{#if currentUser}}
-                <a href="/movies/{{this.id}}/ratings/new" class="btn btn-info">Rate</a>
-              {{/if}}
-                <a href="/movies/{{this.id}}" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-    {{/each}}
-  </div>
-  <!-- ARTICLES -->
-  <div class="col-lg-6">
-    <h1>Articles</h1>
-    All articles posted by user
-    {{#each articles}}
-      <div class="card mt-3">
-          <div class="card-body">
-            <h5 class="card-title">{{this.title}}</h5>
-            <p class="card-text">{{this.desc}}</p>
-            <div class="text-right">
-              {{#if currentUser}}
-                <a href="/articles/new" class="btn btn-info">New Article</a>
-              {{/if}}
-                <a href="/articles/{{this.id}}" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-      {{/each}}
-  </div>
+  <a href="/me/movies">My Movies</a>
+  <br>
+  <a href="/me/articles">My Articles</a>
+  <br>
+  <a href="/me/ratings">My Ratings</a>
 </div>
 {{else}}
 <h1>You don't have an account</h1>

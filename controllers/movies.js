@@ -19,6 +19,8 @@ module.exports = (app, models) => {
     models.Movie.create(req.body).then(movie => {
       movie.setUser(res.locals.currentUser);
       console.log(req.params.id);
+      movieScore = movieScore + 1;
+      console.log(movieScore);
       res.redirect(`/`);
     }).catch((err) => {
       console.log(err)
@@ -67,5 +69,10 @@ module.exports = (app, models) => {
     }).catch((err) => {
       console.log(err);
     });
+  })
+
+  // RICKROLL
+  app.get('/admin', (req, res) => {
+    res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
   })
 }

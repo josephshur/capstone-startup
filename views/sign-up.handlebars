@@ -1,4 +1,8 @@
 <!-- views/sign-up.handlebars -->
+{{#if currentUser}}
+<div>You're already signed in!
+</div>
+{{else}}
 <div class="col-lg-6 offset-lg-3 w-50">
   <div class="card mx-3 p-3">
     <form action="/sign-up" method="POST">
@@ -29,4 +33,5 @@
       </div>
     </form>
   </div>
+  {{/if}}
 </div>

@@ -1,0 +1,28 @@
+{{#if currentUser}}
+<div>
+  {{this.firstName}}
+</div>
+<div class="row">
+  <!-- RATINGS -->
+  <div class="col-lg-6">
+    <h1>Ratings</h1>
+    All ratings posted by user
+    {{#each ratings}}
+      <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">{{this.firstName}} {{this.lastName}}</h5>
+            <p class="card-text">{{this.comment}}</p>
+            <div class="text-right">
+              {{#if currentUser}}
+                <a href="/ratings/new" class="btn btn-info">New Rating</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+  </div>
+</div>
+{{else}}
+<h1>You don't have an account</h1>
+<a href="/sign-up">Sign up</a> or <a href="login">Login</a> here!
+{{/if}}

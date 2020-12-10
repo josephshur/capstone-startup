@@ -66,17 +66,31 @@ module.exports = function (app, models) {
 
     // ME
     app.get('/me', (req, res) => {
-      models.Movie.findAll({ order: [['createdAt', 'DESC']], where: { username: req.body.username }  }).then(movies => {
+      models.Movie.findAll({ order: [['createdAt', 'DESC']], where: { UserId: req.user.id } }).then(movies => {
         res.render('me', { movies: movies });
       })
     })
 
-    // // ME (SECOND VERSION)
-    // app.get('/me', (req, res) => {
-    //   models.User.findOne({ where: user.id }).then(movies => {
-    //     res.render('me', { movies: movies, articles: articles, user: user });
-    //   })
-    // })
+    // MY MOVIES
+    app.get('/me/movies', (req, res) => {
+      models.Movie.findAll({ order: [['createdAt', 'DESC']], where: { UserId: req.user.id } }).then(movies => {
+        res.render('me-movies', { movies: movies });
+      })
+    })
+
+    // MY ARTICLES
+    app.get('/me/articles', (req, res) => {
+      models.Article.findAll({ order: [['createdAt', 'DESC']], where: { UserId: req.user.id } }).then(articles => {
+        res.render('me-articles', { articles: articles });
+      })
+    })
+
+    // MY RATINGS
+    app.get('/me/ratings', (req, res) => {
+      models.Rating.findAll({ order: [['createdAt', 'DESC']], where: { UserId: req.user.id } }).then(ratings => {
+        res.render('me-ratings', { ratings: ratings });
+      })
+    })
 
     // LOGOUT
     app.get('/logout', (req, res, next) => {

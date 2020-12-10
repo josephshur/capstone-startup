@@ -1,0 +1,30 @@
+{{#if currentUser}}
+<div>
+  {{this.firstName}}
+</div>
+<div class="row">
+  <!-- MOVIES -->
+  <div class="col-lg-6">
+    <h1>Movies</h1>
+    All movies posted by user
+    {{#each movies}}
+      <div class="col-lg-6 card mt-3">
+        <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.desc}}</p>
+            <div class="text-right">
+              {{#if currentUser}}
+                <a href="/movies/{{this.id}}/ratings/new" class="btn btn-info">Rate</a>
+              {{/if}}
+                <a href="/movies/{{this.id}}" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+    {{/each}}
+  </div>
+</div>
+{{else}}
+<h1>You don't have an account</h1>
+<a href="/sign-up">Sign up</a> or <a href="login">Login</a> here!
+{{/if}}
