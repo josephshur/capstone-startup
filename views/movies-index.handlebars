@@ -1,18 +1,17 @@
-<!-- events-index -->
+<!-- movies-index -->
   <div class="jumbotron">
     <h1 class="text-dark">Welcome to <a class="text-dark" href="/admin">MovieCentral!</a></h1>
     MovieCentral is the #1 source of finding movies - both classics and originals. Here you can search up movies and their corresponding ratings, as well as post articles pertaining to the entertainment and movie industry. If you can't find your favorite movie, you can add it below.
   </div>
   <div class="row mt-4">
-
     <div>
         <h1>Movies</h1>
         <a href="/movies/new">New Movie</a>
         {{#if movies}}
           <div class="row">
           {{#each movies}}
-            <div class="col-lg-4 card mt-3">
-              <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
+            <div class="col card mt-3">
+              <img class="card-img-top w-100" src="{{this.imgUrl}}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{this.title}}</h5>
                   <p class="card-text">{{this.desc}}</p>
@@ -21,27 +20,11 @@
                       <a href="/movies/{{this.id}}/ratings/new" class="btn btn-info">Rate</a>
                       {{/if}}
                       <a href="/movies/{{this.id}}" class="btn btn-primary">View</a>
-                    </div>
-                    <!-- Ratings Section -->
-                    <!-- <h5 class="card-title">Ratings</h5>
-                    {{#each ratings}}
-                    <div>
-                      <div>
-                        <h6>{{firstName}} {{lastName}}</h5>
-                        <p>{{comment}}</p>
-                        <div>
-                          {{#if currentUser}}
-                            <a href="/movies/:movieId/ratings/new" class="btn btn-info">Reply</a>
-                            {{/if}}
-                            <a href="/movies/:movieId" class="btn btn-primary">Like</a>
-                          </div>
-                      </div>
-                    </div>
-                    {{/each}} -->
                   </div>
                 </div>
-                </div>
-                {{/each}}
+              </div>
+          {{/each}}
+        </div>
           {{else}}
             <div>There's no movies to display! Create a new one.
             </div>
