@@ -15,7 +15,7 @@ module.exports = async function (app, models) {
     req.body.MovieId = req.params.movieId;
     models.Rating.create(req.body).then(rating => {
       console.log(req.params);
-      currentUser.movieScore = currentUser.movieScore + 1; 
+      //models.User.movieScore = (models.User.movieScore + 1);
       res.redirect(`/movies/${req.params.movieId}`);
     }).catch((err) => {
         console.log(err)

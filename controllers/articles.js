@@ -17,7 +17,7 @@ module.exports = function (app, models) {
   // CREATE
   app.post('/articles', (req, res) => {
     models.Article.create(req.body).then(article => {
-    currentUser.movieScore = currentUser.movieScore + 1; 
+      //currentUser.movieScore = currentUser.movieScore + 1;
       console.log(req.params.title);
       res.redirect(`/articles`);
     }).catch((err) => {

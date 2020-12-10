@@ -25,7 +25,7 @@ module.exports = function (app, models) {
       models.User.create(req.body).then(user => {
         // after creating the user
         const csJWT = generateJWT(user);
-        
+
         console.log("Req.Body:", req.body);
         // // save as cookie
         res.cookie("csJWT", csJWT);
