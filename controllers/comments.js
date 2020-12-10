@@ -14,6 +14,7 @@ module.exports = function (app, models) {
     req.body.ArticleId = req.params.articleId;
     models.Comment.create(req.body).then(comment => {
       console.log(req.params);
+      currentUser.movieScore = currentUser.movieScore + 1;
       res.redirect(`/articles/${req.params.articleId}`);
     }).catch((err) => {
         console.log(err)

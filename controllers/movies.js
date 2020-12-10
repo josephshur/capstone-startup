@@ -18,9 +18,8 @@ module.exports = (app, models) => {
   app.post('/movies', (req, res) => {
     models.Movie.create(req.body).then(movie => {
       movie.setUser(res.locals.currentUser);
+      currentUser.movieScore = currentUser.movieScore + 1; 
       console.log(req.params.id);
-      movieScore = movieScore + 1;
-      console.log(movieScore);
       res.redirect(`/`);
     }).catch((err) => {
       console.log(err)
